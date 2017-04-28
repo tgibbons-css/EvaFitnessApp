@@ -24,8 +24,8 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity {
 
     Button buttonAdd, buttonDetails, buttonDelete;          // two button widgets
-    ListView listViewUser;                        // listview to display all the user in the database
-    ArrayAdapter<User> fishAdapter;
+    ListView ListViewUsers;                                // listview to display all the users in the database
+    ArrayAdapter<User> userAdapter;
     List<User> userList;
     UserFirebaseData userFirebaseData;
     DatabaseReference myUserDbRef;
@@ -33,6 +33,8 @@ public class MainActivity extends AppCompatActivity {
     User userSelected;
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener mAuthListener;
+
+    UserFirebaseData fitnessDataSource;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -76,9 +78,9 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    private void setupFirebaseDataChange() {
+    private void SetupFirebaseDataChange() {
         fitnessDataSource = new UserFirebaseData();
-        myUserDbRef = userDataSource.open();
+        myUserDbRef = fitnessDataSource.open();
         myUserDbRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
@@ -87,7 +89,7 @@ public class MainActivity extends AppCompatActivity {
                 // Instantiate a custom adapter for displaying each user
                 userAdapter = new UserAdapter(MainActivity.this, android.R.layout.simple_list_item_single_choice, userList);
                 // Apply the adapter to the list
-                listViewUser.setAdapter(userAdapter);
+                ListViewUsers.setAdapter(userAdapter);
             }
             @Override
             public void onCancelled(DatabaseError databaseError) {
@@ -97,8 +99,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void setupListView() {
-        listViewUser = (ListView) findViewById(R.id.ListViewUser);
-        listViewUser.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        ListViewUsers = (ListView) findViewById(R.id.ListViewUsers);
+        ListViewUsers.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             public void onItemClick(AdapterView<?> adapter, View parent,
                                     int position, long id) {
                 positionSelected = position;

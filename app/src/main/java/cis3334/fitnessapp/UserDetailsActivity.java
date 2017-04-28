@@ -24,7 +24,7 @@ public class UserDetailsActivity extends AppCompatActivity {
         // link each editText variable to the xml layout
         editTextName = (EditText) findViewById(R.id.editTextName);
         editTextWeight = (EditText) findViewById(R.id.editTextWeight);
-        editTextDate = (EditText) findViewById(R.id.editTextDate);
+        editTextDate = (EditText) findViewById(R.id.editTextHeartRate);
         editTextAge = (EditText) findViewById(R.id.editTextAge);
         editTextHeight = (EditText) findViewById(R.id.editTextHeight);
         editTextHeartRate = (EditText) findViewById(R.id.editTextHeartRate);

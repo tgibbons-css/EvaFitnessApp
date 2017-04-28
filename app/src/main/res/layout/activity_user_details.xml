@@ -106,7 +106,7 @@
         android:layout_height="wrap_content"
         android:inputType="textPersonName"
         android:ems="10"
-        android:id="@+id/editTextDate" />
+        android:id="@+id/editTextHeartRate" />
 
     <Button
         android:text="Back"
