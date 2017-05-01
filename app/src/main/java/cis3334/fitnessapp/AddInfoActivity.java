@@ -1,5 +1,6 @@
 package cis3334.fitnessapp;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -10,7 +11,7 @@ import android.widget.EditText;
 import static cis3334.fitnessapp.R.id.buttonSave;
 
 
-public class AddInfoActivity extends AppCompatActivity {
+public class AddInfoActivity extends Activity {
 
     EditText name, age, height, weight, heartRate, bloodPressure, date;
     Button save;
@@ -46,7 +47,7 @@ public class AddInfoActivity extends AppCompatActivity {
         String HeartRate = heartRate.getText().toString();
         String Date = date.getText().toString();
 
-        //UserDataSource.createUser(name, age, height, weight, date);
+
         fitnessDataSource.createUser(Name, Age, Height, Weight, BloodPressure, HeartRate, Date);
         Intent mainActIntent = new Intent(view.getContext(), MainActivity.class);
         finish();

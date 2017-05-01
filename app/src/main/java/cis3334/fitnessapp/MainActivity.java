@@ -1,5 +1,6 @@
 package cis3334.fitnessapp;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
@@ -21,7 +22,7 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends Activity {
 
     Button buttonAdd, buttonDetails, buttonDelete;          // two button widgets
     ListView ListViewUsers;                                // listview to display all the users in the database
@@ -116,8 +117,10 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 // Start up the add user activity with an intent
                 Intent detailActIntent = new Intent(view.getContext(), AddInfoActivity.class);
+                //detailActIntent.putExtra("fitness", fitness);
                 finish();
                 startActivity(detailActIntent);
+
             }
         });
     }
