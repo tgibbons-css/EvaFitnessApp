@@ -28,36 +28,35 @@ public class MainActivity extends Activity {
     ListView ListViewUsers;                                // listview to display all the users in the database
     ArrayAdapter<User> userAdapter;
     List<User> userList;
-    UserFirebaseData userFirebaseData;
+    UserFirebaseData fitnessDataSource;
     DatabaseReference myUserDbRef;
     int positionSelected;
     User userSelected;
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener mAuthListener;
 
-    UserFirebaseData fitnessDataSource;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        SetupFirebaseDataChange();
+        SetUpFirebaseDataChange();
         setupListView();
         setupAddButton();
         setupDetailButton();
         setupDeleteButton();
 
-        mAuth = FirebaseAuth.getInstance(); //declare object for Firebase
+        mAuth = FirebaseAuth.getInstance();   //declare object for Firebase
 
-        mAuthListener = new FirebaseAuth.AuthStateListener() { //initialized mAuthListener
+        mAuthListener = new FirebaseAuth.AuthStateListener() {   //initialized mAuthListener
             @Override
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
                 //track the user when they sign in or out using the firebaseAuth
                 FirebaseUser user = firebaseAuth.getCurrentUser();
                 if (user == null) {
                     // User is signed out
-                    Log.d("CSS3334","onAuthStateChanged - User NOT is signed in");
+                    Log.d("CSS3334","onAuthStateChanged - User is NOT signed in");
                     Intent signInIntent = new Intent(getBaseContext(), LoginActivity.class);
                     startActivity(signInIntent);
                 }
@@ -73,15 +72,15 @@ public class MainActivity extends Activity {
     @Override
     public void onStop() {
         super.onStop();
-        if (mAuthListener != null) { // checks to see if there is a state listnerer and if there is then it will be removed
+        if (mAuthListener != null) { // checks to see if there is a state listener and if there is then it will be removed
             mAuth.removeAuthStateListener(mAuthListener);
         }
     }
 
 
-    private void SetupFirebaseDataChange() {
+    private void SetUpFirebaseDataChange() {
         fitnessDataSource = new UserFirebaseData();
-        myUserDbRef = fitnessDataSource.open();
+        myUserDbRef = fitnessDataSource.open(this);
         myUserDbRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
@@ -111,13 +110,12 @@ public class MainActivity extends Activity {
     }
 
     private void setupAddButton() {
-        // Set up the button to add a new users using a seperate activity
+        // Set up the button to add a new user using a seperate activity
         buttonAdd = (Button) findViewById(R.id.buttonAddUser);
         buttonAdd.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
                 // Start up the add user activity with an intent
                 Intent detailActIntent = new Intent(view.getContext(), AddInfoActivity.class);
-                //detailActIntent.putExtra("fitness", fitness);
                 finish();
                 startActivity(detailActIntent);
 

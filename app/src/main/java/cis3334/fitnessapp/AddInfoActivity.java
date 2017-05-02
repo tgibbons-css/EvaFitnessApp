@@ -29,26 +29,26 @@ public class AddInfoActivity extends Activity {
         weight = (EditText) findViewById(R.id.editTextWeight);
         heartRate = (EditText) findViewById(R.id.editTextHeartRate);
         bloodPressure = (EditText) findViewById(R.id.editTextBloodPressure);
-        date = (EditText) findViewById(R.id.editTextHeartRate);
+        date = (EditText) findViewById(R.id.editTextDate);
         save = (Button) findViewById(buttonSave);
 
         fitnessDataSource = new UserFirebaseData();
-        fitnessDataSource.open();
+        fitnessDataSource.open(this);
 
     }
 
     public void onClick(View view) {
-        // Add the user to the database
+        // Add the user's information to the database
         String Name = name.getText().toString();
         String Age = age.getText().toString();
         String Height = height.getText().toString();
         String Weight = weight.getText().toString();
-        String BloodPressure = bloodPressure.getText().toString();
         String HeartRate = heartRate.getText().toString();
+        String BloodPressure = bloodPressure.getText().toString();
         String Date = date.getText().toString();
 
 
-        fitnessDataSource.createUser(Name, Age, Height, Weight, BloodPressure, HeartRate, Date);
+        fitnessDataSource.createUser(Name, Age, Height, Weight, HeartRate, BloodPressure, Date);
         Intent mainActIntent = new Intent(view.getContext(), MainActivity.class);
         finish();
         startActivity(mainActIntent);

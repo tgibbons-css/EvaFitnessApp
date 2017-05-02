@@ -9,25 +9,26 @@ import java.io.Serializable;
 public class User implements Serializable {
     private String key;
     private String name;
-    private String date;
     private String age;
-    private String height;
-    private String bloodPressure;
-    private String heartRate;
     private String weight;
+    private String height;
+    private String heartRate;
+    private String bloodPressure;
+    private String date;
+
 
     public User() {
     }
 
-    public User(String key, String name, String date, String age, String height, String bloodPressure, String heartRate, String weight)  {
+    public User(String key, String name, String age, String weight, String height, String heartRate, String bloodPressure, String date)  {
         this.key = key;
         this.name = name;
-        this.date = date;
         this.age = age;
-        this.height = height;
-        this.bloodPressure = bloodPressure;
-        this.heartRate = heartRate;
         this.weight = weight;
+        this.height = height;
+        this.heartRate = heartRate;
+        this.bloodPressure = bloodPressure;
+        this.date = date;
     }
 
 
@@ -47,44 +48,12 @@ public class User implements Serializable {
         this.name = name;
     }
 
-    public String getDate() {
-        return date;
-    }
-
-    public void setDate(String date) {
-        this.date = date;
-    }
-
     public String getAge() {
         return age;
     }
 
     public void setAge(String age) {
         this.age = age;
-    }
-
-    public String getHeight() {
-        return height;
-    }
-
-    public void setHeight(String height) {
-        this.height = height;
-    }
-
-    public String getBloodPressure() {
-        return bloodPressure;
-    }
-
-    public void setBloodPressure(String bloodPressure) {
-        this.bloodPressure = bloodPressure;
-    }
-
-    public String getHeartRate() {
-        return heartRate;
-    }
-
-    public void setHeartRate(String heartRate) {
-        this.heartRate = heartRate;
     }
 
     public String getWeight(){
@@ -95,15 +64,48 @@ public class User implements Serializable {
         this.weight = weight;
     }
 
+    public String getHeight() {
+        return height;
+    }
+
+    public void setHeight(String height) {
+        this.height = height;
+    }
+
+    public String getHeartRate() {
+        return heartRate;
+    }
+
+    public void setHeartRate(String heartRate) {
+        this.heartRate = heartRate;
+    }
+
+    public String getBloodPressure() {
+        return bloodPressure;
+    }
+
+    public void setBloodPressure(String bloodPressure) {
+        this.bloodPressure = bloodPressure;
+    }
+
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
+    }
+
+
     @Override
     public String toString() {
         return "User{" +
                 "name='" + name + '\'' +
-                ", weight='" + weight + '\'' +
                 ", age='" + age + '\'' +
+                ", weight='" + weight + '\'' +
                 ", height='" + height + '\'' +
-                ", blood pressure='" + bloodPressure + '\'' +
                 ", heart rate='" + heartRate + '\'' +
+                ", blood pressure='" + bloodPressure + '\'' +
                 ", date='" + date + '\'' +
                 '}';
     }

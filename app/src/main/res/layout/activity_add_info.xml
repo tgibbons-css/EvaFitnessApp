@@ -45,26 +45,6 @@
         android:layout_height="wrap_content"
         android:inputType="textPersonName"
         android:ems="10"
-        android:id="@+id/editTextWeight"
-        android:hint="Weight"
-        android:layout_below="@+id/editTextAge"
-        android:layout_alignParentStart="true" />
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:id="@+id/editTextBloodPressure"
-        android:inputType="numberDecimal"
-        android:hint="Blood Pressure"
-        android:layout_below="@+id/editTextHeartRate"
-        android:layout_alignParentStart="true" />
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="textPersonName"
-        android:ems="10"
         android:id="@+id/editTextHeight"
         android:hint="Height"
         android:layout_below="@+id/editTextWeight"
@@ -75,20 +55,41 @@
         android:layout_height="wrap_content"
         android:inputType="textPersonName"
         android:ems="10"
-        android:layout_below="@+id/editTextBloodPressure"
-        android:layout_alignParentStart="true"
-        android:id="@+id/editTextDate"
-        android:hint="Date" />
+        android:id="@+id/editTextWeight"
+        android:hint="Weight"
+        android:layout_below="@+id/editTextAge"
+        android:layout_alignParentStart="true" />
 
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:inputType="numberDecimal"
+        android:inputType="textPersonName|number|numberDecimal"
         android:ems="10"
         android:id="@+id/editTextHeartRate"
         android:hint="Heart Rate"
         android:layout_below="@+id/editTextHeight"
         android:layout_alignParentStart="true" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:id="@+id/editTextBloodPressure"
+        android:inputType="textPersonName|number|numberDecimal"
+        android:hint="Blood Pressure"
+        android:layout_below="@+id/editTextHeartRate"
+        android:layout_alignParentStart="true" />
+
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:ems="10"
+        android:layout_below="@+id/editTextBloodPressure"
+        android:layout_alignParentStart="true"
+        android:id="@+id/editTextDate"
+        android:hint="Date" />
 
     <Button
         android:text="Save Info"
