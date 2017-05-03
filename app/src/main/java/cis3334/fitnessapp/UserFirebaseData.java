@@ -38,6 +38,9 @@ public class UserFirebaseData {
     public void close() {
 
     }
+    public void updateUser(String userId){
+       this.userId = userId;
+    }
 
     //get the current logged in user's id from Firebase
     private String getUserId(Activity activity){

@@ -62,6 +62,7 @@ public class MainActivity extends Activity {
                     Intent signInIntent = new Intent(getBaseContext(), LoginActivity.class);
                     startActivity(signInIntent);
                 }
+                fitnessDataSource.updateUser(user.getUid());
             }
         };
     }
@@ -159,6 +160,7 @@ public class MainActivity extends Activity {
      */
     public void onClick(View view) {
         mAuth.signOut();
+
     }
 }
 
