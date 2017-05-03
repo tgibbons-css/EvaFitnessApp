@@ -21,7 +21,7 @@
 
         <ListView
             android:layout_width="match_parent"
-            android:layout_height="416dp"
+            android:layout_height="366dp"
             android:id="@+id/ListViewUsers"
             android:choiceMode="singleChoice"
             android:clickable="false" />
@@ -29,14 +29,13 @@
         <LinearLayout
             android:orientation="horizontal"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="52dp">
 
             <Button
                 android:text="@string/add_user"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/buttonAddUser"
-                android:layout_weight="1" />
+                android:id="@+id/buttonAddUser" />
 
             <Button
                 android:text="Delete"
@@ -54,5 +53,19 @@
 
         </LinearLayout>
 
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
+        <Button
+            android:text="Sign Out"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/buttonSignOut"
+            android:layout_weight="1"
+            android:onClick="onClick" />
     </LinearLayout>
+
+
+</LinearLayout>

@@ -8,6 +8,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
+    android:background="@color/blue"
     tools:context="cis3334.fitnessapp.LoginActivity">
 
     <EditText
@@ -42,7 +43,7 @@
         android:onClick="onClick" />
 
     <Button
-        android:text="Create New User"
+        android:text="Create New Account"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/buttonCreateUser"
@@ -50,4 +51,13 @@
         android:layout_alignBaseline="@+id/buttonLogin"
         android:layout_alignBottom="@+id/buttonLogin"
         android:layout_alignParentEnd="true" />
+
+    <TextView
+        android:text="No Account Yet? Create One."
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="61dp"
+        android:id="@+id/textViewText"
+        android:layout_below="@+id/buttonLogin"
+        android:layout_toEndOf="@+id/buttonLogin" />
 </RelativeLayout>

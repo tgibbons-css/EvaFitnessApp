@@ -24,7 +24,7 @@ import java.util.List;
 
 public class MainActivity extends Activity {
 
-    Button buttonAdd, buttonDetails, buttonDelete;          // two button widgets
+    Button buttonAdd, buttonDetails, buttonDelete, buttonSignOut;          // two button widgets
     ListView ListViewUsers;                                // listview to display all the users in the database
     ArrayAdapter<User> userAdapter;
     List<User> userList;
@@ -47,6 +47,8 @@ public class MainActivity extends Activity {
         setupDetailButton();
         setupDeleteButton();
 
+        buttonSignOut = (Button) findViewById(R.id.buttonSignOut);
+
         mAuth = FirebaseAuth.getInstance();   //declare object for Firebase
 
         mAuthListener = new FirebaseAuth.AuthStateListener() {   //initialized mAuthListener
@@ -63,6 +65,7 @@ public class MainActivity extends Activity {
             }
         };
     }
+
 
     public void onStart() {
         super.onStart(); // Creates the listner object
@@ -149,6 +152,13 @@ public class MainActivity extends Activity {
                 userAdapter.notifyDataSetChanged();
             }
         });
+    }
+
+    /*
+    * method signing out logged user
+     */
+    public void onClick(View view) {
+        mAuth.signOut();
     }
 }
 
