@@ -34,6 +34,7 @@ public class MainActivity extends Activity {
     User userSelected;
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener mAuthListener;
+    DataSnapshot fbDataSnapshot;
 
 
     @Override
@@ -56,13 +57,25 @@ public class MainActivity extends Activity {
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
                 //track the user when they sign in or out using the firebaseAuth
                 FirebaseUser user = firebaseAuth.getCurrentUser();
+                Log.d("CSS3334","onAuthStateChanged - starting");
                 if (user == null) {
                     // User is signed out
                     Log.d("CSS3334","onAuthStateChanged - User is NOT signed in");
                     Intent signInIntent = new Intent(getBaseContext(), LoginActivity.class);
                     startActivity(signInIntent);
+                } else {
+                    // switching to a different user
+                    fitnessDataSource.updateUser(user.getUid());
+                    if (fbDataSnapshot!=null)  {
+                        userList = fitnessDataSource.getAllUsers(fbDataSnapshot);
+                        // Instantiate a custom adapter for displaying each user
+                        userAdapter = new UserAdapter(MainActivity.this, android.R.layout.simple_list_item_single_choice, userList);
+                        // Apply the adapter to the list
+                        ListViewUsers.setAdapter(userAdapter);
+                    }
+
                 }
-                fitnessDataSource.updateUser(user.getUid());
+//                fitnessDataSource.updateUser(user.getUid());
             }
         };
     }
@@ -70,12 +83,14 @@ public class MainActivity extends Activity {
 
     public void onStart() {
         super.onStart(); // Creates the listner object
+        Log.d("CSS3334","Main - onStart");
         mAuth.addAuthStateListener(mAuthListener); // Adds a state listener to the object
     }
 
     @Override
     public void onStop() {
         super.onStop();
+        Log.d("CSS3334","Main - onStop");
         if (mAuthListener != null) { // checks to see if there is a state listener and if there is then it will be removed
             mAuth.removeAuthStateListener(mAuthListener);
         }
@@ -88,6 +103,7 @@ public class MainActivity extends Activity {
         myUserDbRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
+                fbDataSnapshot = dataSnapshot;
                 Log.d("CIS3334", "Starting onDataChange()");        // debugging log
                 userList = fitnessDataSource.getAllUsers(dataSnapshot);
                 // Instantiate a custom adapter for displaying each user
@@ -97,7 +113,7 @@ public class MainActivity extends Activity {
             }
             @Override
             public void onCancelled(DatabaseError databaseError) {
-                Log.d("CIS3334", "onCancelled: ");
+                Log.d("CIS3334", "Main onCancelled: ");
             }
         });
     }
@@ -108,7 +124,7 @@ public class MainActivity extends Activity {
             public void onItemClick(AdapterView<?> adapter, View parent,
                                     int position, long id) {
                 positionSelected = position;
-                Log.d("MAIN", "User selected at position " + positionSelected);
+                Log.d("CIS3334", "User selected at position " + positionSelected);
             }
         });
     }
@@ -132,7 +148,7 @@ public class MainActivity extends Activity {
         buttonDetails = (Button) findViewById(R.id.buttonDetails);
         buttonDetails.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
-                Log.d("MAIN", "onClick for Details");
+                Log.d("CIS3334", "onClick for Details");
                 Intent detailActIntent = new Intent(view.getContext(), UserDetailsActivity.class);
                 detailActIntent.putExtra("User", userList.get(positionSelected));
                 finish();
@@ -146,8 +162,8 @@ public class MainActivity extends Activity {
         buttonDelete = (Button) findViewById(R.id.buttonDelete);
         buttonDelete.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                Log.d("MAIN", "onClick for Delete");
-                Log.d("MAIN", "Delete at position " + positionSelected);
+                Log.d("CIS3334", "onClick for Delete");
+                Log.d("CIS3334", "Delete at position " + positionSelected);
                 fitnessDataSource.deleteUser(userList.get(positionSelected));
                 userAdapter.remove( userList.get(positionSelected) );
                 userAdapter.notifyDataSetChanged();
@@ -159,6 +175,7 @@ public class MainActivity extends Activity {
     * method signing out logged user
      */
     public void onClick(View view) {
+        Log.d("CIS3334", "Main onClick ");
         mAuth.signOut();
 
     }

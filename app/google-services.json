@@ -1,43 +1,35 @@
 {
   "project_info": {
-    "project_number": "79270141779",
-    "firebase_url": "https://fitnessapp-19d27.firebaseio.com",
-    "project_id": "fitnessapp-19d27",
-    "storage_bucket": "fitnessapp-19d27.appspot.com"
+    "project_number": "875363463064",
+    "firebase_url": "https://evafitnessapp.firebaseio.com",
+    "project_id": "evafitnessapp",
+    "storage_bucket": "evafitnessapp.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:79270141779:android:0c843076931556d4",
+        "mobilesdk_app_id": "1:875363463064:android:0c843076931556d4",
         "android_client_info": {
           "package_name": "cis3334.fitnessapp"
         }
       },
       "oauth_client": [
         {
-          "client_id": "79270141779-5bcvth1daj16dtb0rjoqbjafd2bl3oth.apps.googleusercontent.com",
+          "client_id": "875363463064-iit2ft0isvon78aek2unm6lal16fk7v3.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "cis3334.fitnessapp",
-            "certificate_hash": "37b2205c336cab3dae781c379055300a2729281b"
+            "certificate_hash": "29200dd6dc1e1e69796836b85e48f5ed71dcb379"
           }
         },
         {
-          "client_id": "79270141779-1rfhsnid2ofiiun7brfo015t686qnras.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "cis3334.fitnessapp",
-            "certificate_hash": "492fc049fe5a4a888055b120b1248f7bd09ca542"
-          }
-        },
-        {
-          "client_id": "79270141779-huf8c7plg3emap262f2ainsc0cknl46c.apps.googleusercontent.com",
+          "client_id": "875363463064-m8lnsqb5vctb8oqgvsjiv9pu3527k0ue.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyCIkblmv9ee0scTo7seOB6CotMnfWkZA5s"
+          "current_key": "AIzaSyDpmRoJkwKo7pW4cWZErURJ7qBzSLLD3U4"
         }
       ],
       "services": {
@@ -48,7 +40,7 @@
           "status": 2,
           "other_platform_oauth_client": [
             {
-              "client_id": "79270141779-huf8c7plg3emap262f2ainsc0cknl46c.apps.googleusercontent.com",
+              "client_id": "875363463064-m8lnsqb5vctb8oqgvsjiv9pu3527k0ue.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
